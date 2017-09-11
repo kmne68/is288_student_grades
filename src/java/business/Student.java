@@ -12,19 +12,19 @@ package business;
 public class Student {
     
     private String studentID, lastName, firstName;
-    private double quiz1, quiz2, quiz3, quiz4, quiz5, quizMkUp;
+    private double q1, q2, q3, q4, q5, qmkup;
     private double midterm, problems, finalExam;
     
     public Student() {
         this.studentID = "";
         this.lastName = "";
         this.firstName = "";
-        this.quiz1 = 0;
-        this.quiz2 = 0;
-        this.quiz3 = 0;
-        this.quiz4 = 0;
-        this.quiz5 = 0;
-        this.quizMkUp = 0;
+        this.q1 = 0;
+        this.q2 = 0;
+        this.q3 = 0;
+        this.q4 = 0;
+        this.q5 = 0;
+        this.qmkup = 0;
         this.midterm = 0;
         this.problems = 0;
         this.finalExam = 0;
@@ -55,51 +55,51 @@ public class Student {
     }
 
     public double getQuiz1() {
-        return quiz1;
+        return q1;
     }
 
     public void setQuiz1(double quiz1) {
-        this.quiz1 = quiz1;
+        this.q1 = quiz1;
     }
 
     public double getQuiz2() {
-        return quiz2;
+        return q2;
     }
 
     public void setQuiz2(double quiz2) {
-        this.quiz2 = quiz2;
+        this.q2 = quiz2;
     }
 
     public double getQuiz3() {
-        return quiz3;
+        return q3;
     }
 
     public void setQuiz3(double quiz3) {
-        this.quiz3 = quiz3;
+        this.q3 = quiz3;
     }
 
     public double getQuiz4() {
-        return quiz4;
+        return q4;
     }
 
     public void setQuiz4(double quiz4) {
-        this.quiz4 = quiz4;
+        this.q4 = quiz4;
     }
 
     public double getQuiz5() {
-        return quiz5;
+        return q5;
     }
 
     public void setQuiz5(double quiz5) {
-        this.quiz5 = quiz5;
+        this.q5 = quiz5;
     }
 
     public double getQuizMkUp() {
-        return quizMkUp;
+        return qmkup;
     }
 
     public void setQuizMkUp(double quizMkUp) {
-        this.quizMkUp = quizMkUp;
+        this.qmkup = quizMkUp;
     }
 
     public double getMidterm() {
@@ -129,6 +129,6 @@ public class Student {
     
     public String toString() {
         return this.studentID + ", " + this.lastName + ", " +
-                this.firstName + ", " + this.quiz1;
+                this.firstName + ", " + this.q1;
     }
 }
