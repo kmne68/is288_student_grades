@@ -5,6 +5,8 @@
  */
 package business;
 
+import java.util.Arrays;
+
 /**
  *
  * @author kmne6
@@ -128,7 +130,57 @@ public class Student {
     
     
     public String toString() {
+        double[] largeGrades = this.getLargestQuizGrades();
+        
         return this.studentID + ", " + this.lastName + ", " +
-                this.firstName + ", " + this.q1;
+                this.firstName + ", " + this.q1 + ", " +
+                this.q2 + ", " + this.q3 + ", " +
+                this.q4 + ", " + this.q5 + ", " +
+                this.qmkup + ", " + this.midterm + ", " +
+                this.finalExam + ", " + "Largest quiz grades: " +
+                largeGrades[0] + ", " + 
+                largeGrades[1] + ", " +
+                largeGrades[2] + ", " +
+                largeGrades[3] + ", " + 
+                largeGrades[4] + ", end array";
+    }
+    
+    /**
+     * The calculation of the grade is based on the following rules:
+     * 50% for Quiz Average,
+     * 15% for the MidTerm,
+     * 10% for the Problems,
+     * 25% for the final exam (except where not required – see below)
+     * 
+     * The quiz average is calculated from only the highest 4 scores; 
+     * a quiz make-up test may or may not have been taken, 
+     * but if it was, it should be considered along with all the other scores
+     * as a possible quiz to be among the 4 counted for the grade.
+     * 
+     * @return 
+     */
+    public double calculateCourseGrade() {
+        
+        double courseGrade = 0;
+        
+        
+        
+        return courseGrade;
+    }
+    
+    
+    public double[] getLargestQuizGrades() {
+        
+        double[] scores = {q1, q2, q3, q4, q5, qmkup};
+        double[] largestQuizzes = null;
+        Arrays.sort(scores);
+        
+        largestQuizzes = Arrays.copyOfRange(scores, 1, scores.length);
+        
+        for(double quiz : largestQuizzes) {
+            System.out.println(quiz);
+        }
+        
+        return largestQuizzes;
     }
 }
