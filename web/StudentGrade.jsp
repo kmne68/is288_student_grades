@@ -20,6 +20,7 @@
         ID:<%= s.getStudentID()%><br>
         Name:<%= s.getFirstName()%><%= s.getLastName()%><br>
 
+        <a href="students.jsp">New Student</a>
     </body>
     ${emsg}
 </html>

@@ -4,9 +4,17 @@
         <servlet-name>CalculateGradesServlet</servlet-name>
         <servlet-class>servlets.CalculateGradesServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ClassListServlet</servlet-name>
+        <servlet-class>servlets.ClassListServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CalculateGradesServlet</servlet-name>
         <url-pattern>/CalculateGrades</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ClassListServlet</servlet-name>
+        <url-pattern>/ClassList</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

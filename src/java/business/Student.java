@@ -13,6 +13,11 @@ import java.util.Arrays;
  */
 public class Student {
     
+    private static final double QUIZPROP = 0.50;
+    private static final double MIDTERMPROP = 0.15;
+    private static final double PROBLEMSPROP = 0.10;
+    private static final double FINALPROP = 0.25;
+    
     private String studentID, lastName, firstName;
     private double q1, q2, q3, q4, q5, qmkup;
     private double midterm, problems, finalExam;
@@ -130,19 +135,21 @@ public class Student {
     
     
     public String toString() {
-        double[] largeGrades = this.getLargestQuizGrades();
+    //    double[] largeGrades = this.getLargestQuizGrades();
         
         return this.studentID + ", " + this.lastName + ", " +
                 this.firstName + ", " + this.q1 + ", " +
                 this.q2 + ", " + this.q3 + ", " +
                 this.q4 + ", " + this.q5 + ", " +
                 this.qmkup + ", " + this.midterm + ", " +
-                this.finalExam + ", " + "Largest quiz grades: " +
-                largeGrades[0] + ", " + 
+                this.problems + ", " +
+                this.finalExam + ", " + calculateCourseGrade();
+        
+        /* + ", " + "Largest quiz grades: " +
                 largeGrades[1] + ", " +
-                largeGrades[2] + ", " +
-                largeGrades[3] + ", " + 
-                largeGrades[4] + ", end array";
+                largeGrades[2] + ", " + 
+                largeGrades[3] + ", " +
+                largeGrades[4] + " end array"; */
     }
     
     /**
@@ -163,9 +170,29 @@ public class Student {
         
         double courseGrade = 0;
         
-        
-        
+        courseGrade = QUIZPROP * getQuizAverage() + MIDTERMPROP * this.midterm +
+                PROBLEMSPROP * this.problems + FINALPROP * this.finalExam;
+
         return courseGrade;
+    }
+    
+    
+    // Get average of four highest quiz scores
+    public double getQuizAverage() {
+        
+        double quizAverage = 0;
+        double[] quizScores = getLargestQuizGrades();
+        double quizSum = 0;
+        int quizzes = 0;
+        
+        for(double score : quizScores) {
+            quizzes++;
+            quizSum += score;
+        }
+        
+        quizAverage = quizSum / quizzes;    
+        
+        return quizAverage;
     }
     
     
@@ -183,4 +210,5 @@ public class Student {
         
         return largestQuizzes;
     }
+    
 }

@@ -5,9 +5,14 @@
  */
 package business;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 /**
  *
@@ -29,4 +34,50 @@ public class StudentIO {
         return true;
 
     }
+
+    // return all students
+    public static ArrayList<Student> getStudentList(String path) {
+
+        ArrayList<Student> sList = new ArrayList<>();
+
+        String s;
+        try {
+            BufferedReader in = new BufferedReader(new FileReader(path));
+
+            s = in.readLine();
+            while (s != null) {
+                Student stud = parseStudent(s);
+                sList.add(stud);
+                s = in.readLine();
+            }
+            in.close();
+
+        } catch (FileNotFoundException e) {
+            //  sList.add("File not found.");
+        } catch (IOException e) {
+            //  sList.add("Error reading " + path);
+        }
+
+        return sList;
+    }
+
+    private static Student parseStudent(String s) {
+
+        Student stud = new Student();
+
+        // split string into an array of strings
+        try {
+            String[] sarray = s.split(", ");
+
+            stud.setStudentID(sarray[0]);
+            stud.setLastName(sarray[1]);
+            stud.setFirstName(sarray[2]);
+            stud.setQuiz1(Double.parseDouble(sarray[3]));
+
+        } catch (Exception e) {
+            return (new Student());
+        }
+        return stud;
+    }
+
 }
