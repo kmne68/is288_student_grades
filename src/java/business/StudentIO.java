@@ -73,6 +73,14 @@ public class StudentIO {
             stud.setLastName(sarray[1]);
             stud.setFirstName(sarray[2]);
             stud.setQuiz1(Double.parseDouble(sarray[3]));
+            stud.setQuiz2(Double.parseDouble(sarray[4]));
+            stud.setQuiz3(Double.parseDouble(sarray[5]));
+            stud.setQuiz4(Double.parseDouble(sarray[6]));
+            stud.setQuiz5(Double.parseDouble(sarray[7]));
+            stud.setQuizMkUp(Double.parseDouble(sarray[8]));
+            stud.setMidterm(Double.parseDouble(sarray[9]));
+            stud.setProblems(Double.parseDouble(sarray[10]));
+            stud.setFinalExam(Double.parseDouble(sarray[11]));
 
         } catch (Exception e) {
             return (new Student());

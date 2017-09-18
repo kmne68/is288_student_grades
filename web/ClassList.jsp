@@ -39,7 +39,16 @@
             <tr>
                 <td><%= sList.get(i).getStudentID() %></td>
                 <td><%= sList.get(i).getLastName() + ", " + sList.get(i).getFirstName() %></td>  
-                <td><%= sList.get(i).getQuiz1() %></td>                  
+                <td><%= sList.get(i).getQuiz1() %></td>         
+                <td><%= sList.get(i).getQuiz2() %></td>  
+                <td><%= sList.get(i).getQuiz3() %></td>  
+                <td><%= sList.get(i).getQuiz4() %></td>  
+                <td><%= sList.get(i).getQuiz5() %></td>  
+                <td><%= sList.get(i).getQuizMkUp()%></td>  
+                <td><%= sList.get(i).getMidterm() %></td>  
+                <td><%= sList.get(i).getProblems() %></td>  
+                <td><%= sList.get(i).getFinalExam() %></td>  
+                <td><%= sList.get(i).getClass() %></td>                
             </tr>
             <% } %>
         </table>
