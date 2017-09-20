@@ -81,6 +81,7 @@ public class StudentIO {
             stud.setMidterm(Double.parseDouble(sarray[9]));
             stud.setProblems(Double.parseDouble(sarray[10]));
             stud.setFinalExam(Double.parseDouble(sarray[11]));
+            stud.calculateCourseGrade();
 
         } catch (Exception e) {
             return (new Student());

@@ -90,7 +90,7 @@ public class CalculateGradesServlet extends HttpServlet {
                             case "qmkup":
                                 s.setQuizMkUp(parsedGrade);
                                 break;
-                            case "midtre":
+                            case "midterm":
                                 s.setMidterm(parsedGrade);
                                 break;
                             case "probs":

@@ -143,7 +143,7 @@ public class Student {
                 this.q4 + ", " + this.q5 + ", " +
                 this.qmkup + ", " + this.midterm + ", " +
                 this.problems + ", " +
-                this.finalExam + ", " + calculateCourseGrade();
+                this.finalExam + ", " + this.calculateCourseGrade();
         
         /* + ", " + "Largest quiz grades: " +
                 largeGrades[1] + ", " +
@@ -197,12 +197,12 @@ public class Student {
     
     
     public double[] getLargestQuizGrades() {
-        
+        double[] sortedArray = null;
         double[] scores = {q1, q2, q3, q4, q5, qmkup};
         double[] largestQuizzes = null;
         Arrays.sort(scores);
         
-        largestQuizzes = Arrays.copyOfRange(scores, 1, scores.length);
+        largestQuizzes = Arrays.copyOfRange(scores, 2, scores.length); // scores.length
         
         for(double quiz : largestQuizzes) {
             System.out.println(quiz);
