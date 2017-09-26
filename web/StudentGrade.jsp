@@ -19,6 +19,16 @@
         %>
         ID:<%= s.getStudentID()%><br>
         Name:<%= s.getFirstName()%><%= s.getLastName()%><br>
+        Quiz 1:<%= s.getQuiz1()%><br>
+        Quiz 2:<%= s.getQuiz2()%><br>
+        Quiz 3:<%= s.getQuiz3() %><br>
+        Quiz 4:<%= s.getQuiz4() %><br>
+        Quiz 5:<%= s.getQuiz5() %><br>
+        Make up quiz:<%= s.getQuizMkUp() %><br>
+        Midterm:<%= s.getMidterm() %><br>
+        Problems:<%= s.getProblems() %><br>
+        Final Exam:<%= s.getFinalExam() %><br>   
+        Course Grade:<%= s.getCourseGrade() %><br>
 
         <a href="students.jsp">New Student</a>
     </body>

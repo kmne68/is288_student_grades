@@ -21,6 +21,7 @@ public class Student {
     private String studentID, lastName, firstName;
     private double q1, q2, q3, q4, q5, qmkup;
     private double midterm, problems, finalExam;
+    private double courseGrade;
     
     public Student() {
         this.studentID = "";
@@ -35,6 +36,7 @@ public class Student {
         this.midterm = 0;
         this.problems = 0;
         this.finalExam = 0;
+        this.courseGrade = 0;
     }
 
     public String getStudentID() {
@@ -134,6 +136,11 @@ public class Student {
     }
     
     
+    public double getCourseGrade() {
+        return this.calculateCourseGrade();
+    }
+    
+    
     public String toString() {
     //    double[] largeGrades = this.getLargestQuizGrades();
         
@@ -143,7 +150,7 @@ public class Student {
                 this.q4 + ", " + this.q5 + ", " +
                 this.qmkup + ", " + this.midterm + ", " +
                 this.problems + ", " +
-                this.finalExam + ", " + this.calculateCourseGrade();
+                this.finalExam + ", " + this.courseGrade;
         
         /* + ", " + "Largest quiz grades: " +
                 largeGrades[1] + ", " +
@@ -168,9 +175,9 @@ public class Student {
      */
     public double calculateCourseGrade() {
         
-        double courseGrade = 0;
+     //   double courseGrade = 0;
         
-        courseGrade = QUIZPROP * getQuizAverage() + MIDTERMPROP * this.midterm +
+        this.courseGrade = QUIZPROP * getQuizAverage() + MIDTERMPROP * this.midterm +
                 PROBLEMSPROP * this.problems + FINALPROP * this.finalExam;
 
         return courseGrade;
