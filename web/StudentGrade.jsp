@@ -29,6 +29,7 @@
         Problems:<%= s.getProblems() %><br>
         Final Exam:<%= s.getFinalExam() %><br>   
         Course Grade:<%= s.getCourseGrade() %><br>
+        Letter Grade:<%= s.getLetterGrade() %><br>
 
         <a href="students.jsp">New Student</a>
     </body>

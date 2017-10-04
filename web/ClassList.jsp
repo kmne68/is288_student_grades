@@ -49,8 +49,8 @@
                 <td><%= sList.get(i).getProblems() %></td>  
                 <td><%= sList.get(i).getFinalExam() %></td>  
                 <!-- td><//%= sList.get(i).getClass() %></td-->  
-                <td><%= sList.get(i).getQuizAverage() %></td>
-                <td><%= sList.get(i).calculateCourseGrade() %></td>
+                <td><%= sList.get(i).getCourseGrade() %></td>
+                <td><%= sList.get(i).getLetterGrade() %></td>
             </tr>
             <% } %>
         </table>

@@ -20,7 +20,8 @@ public class Student {
     private static final int QUIZZESDROPPED = 2;    // works as the starting index in selecting highest scores
     
     private String studentID, lastName, firstName;
-    private double q1, q2, q3, q4, q5, qmkup;
+    char letterGrade;
+    private double q1, q2, q3, q4, q5, qmkup, quizAverage;
     private double midterm, problems, finalExam;
     private double courseGrade;
     
@@ -38,6 +39,8 @@ public class Student {
         this.problems = 0;
         this.finalExam = 0;
         this.courseGrade = 0;
+        this.quizAverage = 0;
+        this.letterGrade = ' ';
     }
 
     public String getStudentID() {
@@ -64,6 +67,16 @@ public class Student {
         this.firstName = firstName;
     }
 
+    /*
+    public char getLetterGrade() {
+        return this.letterGrade;
+    }
+    
+    public double getCourseGrade() {
+        return this.courseGrade;
+    }
+    */
+    
     public double getQuiz1() {
         return q1;
     }
@@ -137,11 +150,6 @@ public class Student {
     }
     
     
-    public double getCourseGrade() {
-        return this.calculateCourseGrade();
-    }
-    
-    
     public String toString() {
     //    double[] largeGrades = this.getLargestQuizGrades();
         
@@ -151,13 +159,8 @@ public class Student {
                 this.q4 + ", " + this.q5 + ", " +
                 this.qmkup + ", " + this.midterm + ", " +
                 this.problems + ", " +
-                this.finalExam + ", " + this.courseGrade;
-        
-        /* + ", " + "Largest quiz grades: " +
-                largeGrades[1] + ", " +
-                largeGrades[2] + ", " + 
-                largeGrades[3] + ", " +
-                largeGrades[4] + " end array"; */
+                this.finalExam + ", " + this.courseGrade + ", " +
+                this.letterGrade;
     }
     
     /**
@@ -174,7 +177,7 @@ public class Student {
      * 
      * @return 
      */
-    public double calculateCourseGrade() {
+    public double getCourseGrade() {
         
         this.courseGrade = QUIZPROP * getQuizAverage() + MIDTERMPROP * this.midterm +
                 PROBLEMSPROP * this.problems + FINALPROP * this.finalExam;
@@ -183,10 +186,31 @@ public class Student {
     }
     
     
+    public char getLetterGrade() {
+        
+        if(this.courseGrade >= 90.0 || (this.quizAverage >= 90.0 && this.midterm >= 90.0 && this.problems >= 90.0)) {
+            letterGrade = 'A';
+        }
+        else if(this.courseGrade >= 80.0 && this.courseGrade <= 89.99) {
+            letterGrade = 'B';
+        }
+        else if(this.courseGrade >= 70.0 && this.courseGrade <= 79.99) {
+            letterGrade = 'C';
+        }
+        else if(this.courseGrade >= 60.0 && this.courseGrade <= 69.99) {
+            letterGrade = 'D';
+        }
+        else if(this.courseGrade <= 50) {
+            letterGrade = 'F';
+        }
+        
+        return letterGrade;
+    }
+    
+    
     // Get average of four highest quiz scores
     public double getQuizAverage() {
         
-        double quizAverage = 0;
         double[] quizScores = getLargestQuizGrades();
         double quizSum = 0;
         int quizzes = 0;
