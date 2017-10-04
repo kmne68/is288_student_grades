@@ -17,6 +17,7 @@ public class Student {
     private static final double MIDTERMPROP = 0.15;
     private static final double PROBLEMSPROP = 0.10;
     private static final double FINALPROP = 0.25;
+    private static final int QUIZZESDROPPED = 2;    // works as the starting index in selecting highest scores
     
     private String studentID, lastName, firstName;
     private double q1, q2, q3, q4, q5, qmkup;
@@ -175,8 +176,6 @@ public class Student {
      */
     public double calculateCourseGrade() {
         
-     //   double courseGrade = 0;
-        
         this.courseGrade = QUIZPROP * getQuizAverage() + MIDTERMPROP * this.midterm +
                 PROBLEMSPROP * this.problems + FINALPROP * this.finalExam;
 
@@ -208,8 +207,7 @@ public class Student {
         double[] scores = {q1, q2, q3, q4, q5, qmkup};
         double[] largestQuizzes = null;
         Arrays.sort(scores);
-        
-        largestQuizzes = Arrays.copyOfRange(scores, 2, scores.length); // scores.length
+        largestQuizzes = Arrays.copyOfRange(scores, QUIZZESDROPPED, scores.length);
         
         for(double quiz : largestQuizzes) {
             System.out.println(quiz);

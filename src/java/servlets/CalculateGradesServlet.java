@@ -61,8 +61,6 @@ public class CalculateGradesServlet extends HttpServlet {
         }
         // try to create and set all numeric fields
         for (String grade : grades) {
-            validateGrade(grade);
-
             try {
                 String gradeField = request.getParameter(grade);
                 if (!gradeField.isEmpty()) {
@@ -148,11 +146,6 @@ public class CalculateGradesServlet extends HttpServlet {
 
         RequestDispatcher disp = getServletContext().getRequestDispatcher(URL);
         disp.forward(request, response);
-    }
-
-    // Validate scores
-    public void validateGrade(String grade) {
-
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
