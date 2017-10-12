@@ -65,7 +65,7 @@ public class CalculateGradesServlet extends HttpServlet {
                 String gradeField = request.getParameter(grade);
                 if (!gradeField.isEmpty()) {
                     double parsedGrade = Double.parseDouble(gradeField);
-                    if (parsedGrade < 0 || parsedGrade > 125) {
+                    if (parsedGrade < 0 || parsedGrade > 125 || !Character.isDigit(gradeField.charAt(0))) {
                         throw new NumberFormatException("score out of bounds");
                     } else {
 
